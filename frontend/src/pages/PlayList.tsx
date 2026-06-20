@@ -9,6 +9,8 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const playlistServer = import.meta.env.VITE_PLAYLIST_API;
+
 const PlayList = () => {
   const { setIsPlaying, setQueue,
   setCurrentIndex, } = useSongData();
@@ -98,15 +100,15 @@ const handleCoverUpload = async (
 
   formData.append("file", file);
 
-  const { data } = await axios.post(
-    "http://localhost:5003/api/v1/playlist/upload-cover",
-    formData,
-    {
-      headers: {
-        token: localStorage.getItem("token"),
-      },
-    }
-  );
+const { data } = await axios.post(
+  `${playlistServer}/api/v1/playlist/upload-cover`,
+  formData,
+  {
+    headers: {
+      token: localStorage.getItem("token"),
+    },
+  }
+);
 
   setEditCoverImage(data.imageUrl);
 };
