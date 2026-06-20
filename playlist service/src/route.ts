@@ -1,0 +1,32 @@
+import express from "express";
+import { isAuth, uploadFile } from "./middleware.js";
+import {
+  createPlaylist,
+  getMyPlaylists,
+  getPlaylistById,
+  addSongToPlaylist,
+  removeSongFromPlaylist,
+  deletePlaylist,
+  updatePlaylist,
+  uploadPlaylistCover
+} from "./controller.js";
+
+const router = express.Router();
+
+router.post("/playlist/new", isAuth, createPlaylist);
+
+router.get("/playlist/my", isAuth, getMyPlaylists);
+
+router.get("/playlist/:id", isAuth, getPlaylistById);
+
+router.post("/playlist/:id/song", isAuth, addSongToPlaylist);
+
+router.delete("/playlist/:id/song", isAuth, removeSongFromPlaylist);
+
+router.delete("/playlist/:id", isAuth, deletePlaylist);
+
+router.put("/playlist/:id", isAuth, updatePlaylist);
+
+router.post("/playlist/upload-cover", isAuth, uploadFile, uploadPlaylistCover);
+
+export default router;
