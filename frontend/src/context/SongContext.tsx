@@ -11,7 +11,7 @@ import React, {
 const server = "http://localhost:8000";
 
 export interface Song {
-  id: number;
+  id: string;
   title: string;
   description: string;
   thumbnail: string;

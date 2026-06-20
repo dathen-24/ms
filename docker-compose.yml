@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+
+  user-service:
+    build: ./user-service
+    env_file:
+    - "./user-service/.env"
+    ports:
+      - "5000:5000"
+
+  song-service:
+    build: ./song-service
+    env_file:
+    - "./song-service/.env"
+    ports:
+      - "8000:8000"
+
+  playlist-service:
+    build: ./playlist-service
+    env_file:
+    - "./playlist-service/.env"
+    ports:
+      - "5003:5003"
+
+  admin-service:
+    build: ./admin-service
+    env_file:
+    - "./admin-service/.env"
+    ports:
+      - "7000:7000"
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - user-service
+      - song-service
+      - playlist-service
+      - admin-service

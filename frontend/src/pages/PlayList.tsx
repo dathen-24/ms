@@ -48,6 +48,9 @@ const [isPublic, setIsPublic] = useState(false);
 
   const currentPlaylist =
   playlists.find((p) => p._id === id);
+  if (!currentPlaylist) {
+  return <div>Playlist not found</div>;
+}
   console.log("CURRENT PLAYLIST:", currentPlaylist);
 
 const currentSongs =

@@ -13,7 +13,6 @@ const Album = () => {
     albumSong,
     albumData,
     setIsPlaying,
-    setSelectedSong,
     loading,
     setQueue,
   setCurrentIndex,

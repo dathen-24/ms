@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaBookmark, FaPlay } from "react-icons/fa";
+import { FaBookmark } from "react-icons/fa";
 import { useUserData } from "../context/UserContext";
 import { useSongData, Song } from "../context/SongContext";
 import AddToPlaylistModal from "./AddToPlaylistModal";

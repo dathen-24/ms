@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSongData } from "../context/SongContext";
 import { GrChapterNext, GrChapterPrevious } from "react-icons/gr";
 import { FaPause, FaPlay } from "react-icons/fa";
-import { Shuffle } from "lucide-react";
 
 const Player = () => {
   const {
@@ -79,7 +78,7 @@ useEffect(() => {
 }, [volume]);
 
 const handlePlayPause = () => {
-  setIsPlaying((prev) => !prev);
+  setIsPlaying(!isPlaying);
 };
 
 const volumeChange = (
